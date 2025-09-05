@@ -14,7 +14,7 @@ RUN yarn build
 # Nginx para servir o build
 FROM nginx:stable-alpine
 
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
