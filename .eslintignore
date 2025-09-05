@@ -1,0 +1,8 @@
+**/*.js
+vite.config.ts
+node_modules
+build
+/src/vite-env.d.ts
+/src/reportWebVitals.ts
+/*.js
+/src/__tests__/*
