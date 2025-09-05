@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN cp ./.env.example ./.env
+COPY .env.example .env
 
 RUN yarn install --frozen-lockfile
 
