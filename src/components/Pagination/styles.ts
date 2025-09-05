@@ -39,7 +39,7 @@ export const Container = styled.div`
       }
 
       :hover {
-        background-color: #ec6724;
+        background-color: #6161ff;
         color: #fff;
 
         svg {
@@ -53,7 +53,7 @@ export const Container = styled.div`
     }
 
     .selected {
-      background-color: #ec6724;
+      background-color: #6161ff;
       color: #fff;
     }
   }

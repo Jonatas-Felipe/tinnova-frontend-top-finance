@@ -22,7 +22,7 @@ export const Table = styled.div`
   .header{
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #ff6900;
+    background-color: #6161ff;
 
     .table-cell{
       color: #fff;

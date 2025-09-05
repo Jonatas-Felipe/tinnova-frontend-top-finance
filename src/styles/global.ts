@@ -71,13 +71,13 @@ export default createGlobalStyle`
   }
 
   .btn-primary{
-    border-color: #ff6900 !important;
-    background-color: #ff6900 !important;
+    border-color: #6161ff !important;
+    background-color: #6161ff !important;
     color: #ffffff !important;
 
     :hover{
-      border-color: ${darken(0.05, '#ff6900')} !important;
-      background-color: ${darken(0.05, '#ff6900')} !important;
+      border-color: ${darken(0.05, '#6161ff')} !important;
+      background-color: ${darken(0.05, '#6161ff')} !important;
     }
   }
 
