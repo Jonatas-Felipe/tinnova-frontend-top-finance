@@ -3,13 +3,15 @@ FROM node:20-alpine as builder
 
 WORKDIR /app
 
-COPY package*.json ./
+RUN npm install -g yarn
 
-RUN npm install
+COPY package.json yarn.lock ./
+
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build
+RUN yarn build
 
 # Nginx para servir o build
 FROM nginx:stable-alpine
