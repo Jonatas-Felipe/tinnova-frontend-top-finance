@@ -12,6 +12,11 @@
           let pkg = await import("__mf__virtual/topFinance__prebuild__react_mf_2_dom__prebuild__.js")
           return pkg
         }
+      ,
+        "styled-components": async () => {
+          let pkg = await import("__mf__virtual/topFinance__prebuild__styled_mf_2_components__prebuild__.js")
+          return pkg
+        }
       
     }
       const usedShared = {
@@ -37,7 +42,7 @@
               }
             },
             shareConfig: {
-              singleton: false,
+              singleton: true,
               requiredVersion: "^19.1.0"
             }
           }
@@ -63,8 +68,34 @@
               }
             },
             shareConfig: {
-              singleton: false,
+              singleton: true,
               requiredVersion: "^19.1.0"
+            }
+          }
+        ,
+          "styled-components": {
+            name: "styled-components",
+            version: "5.3.0",
+            scope: ["default"],
+            loaded: false,
+            from: "topFinance",
+            async get () {
+              usedShared["styled-components"].loaded = true
+              const {"styled-components": pkgDynamicImport} = importMap 
+              const res = await pkgDynamicImport()
+              const exportModule = {...res}
+              // All npm packages pre-built by vite will be converted to esm
+              Object.defineProperty(exportModule, "__esModule", {
+                value: true,
+                enumerable: false
+              })
+              return function () {
+                return exportModule
+              }
+            },
+            shareConfig: {
+              singleton: true,
+              requiredVersion: "5.3.0"
             }
           }
         

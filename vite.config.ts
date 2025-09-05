@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 import { federation } from '@module-federation/vite';
 import path from 'path';
 
+import deps from './package.json';
+
 const isTest = process.env.VITEST;
 
 export default defineConfig({
@@ -23,7 +25,24 @@ export default defineConfig({
         './App': './src/App.tsx',
       },
       filename: 'assets/remoteEntry.js',
-      shared: ['react', 'react-dom', 'zustand'],
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: deps.dependencies.react,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: deps.dependencies['react-dom'],
+        },
+        'zustand': {
+          singleton: true,
+          requiredVersion: deps.dependencies.zustand,
+        }
+        , 'styled-components': {
+          singleton: true,
+          requiredVersion: deps.dependencies['styled-components'],
+        },
+      }
     }),
     react(),
   ],
