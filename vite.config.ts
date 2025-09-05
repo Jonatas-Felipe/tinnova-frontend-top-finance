@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => ({
       shared: ['react', 'react-dom', 'zustand'],
     }) : federationPlugin({
       name: 'topFinance',
-      filename: 'assets/remoteEntry.js',
+      filename: 'remoteEntry.js',
       exposes: {
         './App': './src/App.tsx',
       },
