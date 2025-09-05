@@ -6,6 +6,7 @@ import path from 'path';
 const isTest = process.env.VITEST;
 
 export default defineConfig({
+  base: 'http://localhost:3002/',
   plugins: [
     !isTest && federation({
       name: 'topFinance',

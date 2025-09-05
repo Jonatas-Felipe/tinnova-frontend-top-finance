@@ -70,6 +70,14 @@
         
     }
       const usedRemotes = [
+                {
+                  entryGlobalName: "mainFront",
+                  name: "mainFront",
+                  type: "module",
+                  entry: "http://localhost:3000/assets/remoteEntry.js",
+                  shareScope: "default",
+                }
+          
       ]
       export {
         usedShared,
