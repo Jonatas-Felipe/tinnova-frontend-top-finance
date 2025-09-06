@@ -1,127 +1,97 @@
-<!-- # 🥸 Teste Front-end Teddy
+# Frontend TOP Finance
 
-## 📝 Descrição
-
-Este projeto é um painel de gerenciamento de clientes desenvolvido como parte de um desafio técnico.\
-O sistema consiste em:
-
-- Uma **tela de login** baseada em nome
-- Uma **tela principal** para listar, cadastrar, editar, excluir e selecionar clientes
-- Uma **tela secundária** para visualizar apenas os clientes que foram selecionados
-
----
-
-## ✨ Funcionalidades
-
-- **Autenticação Simples:** Acesso ao sistema informando apenas o nome do usuário.
-- **Listagem de Clientes:** Visualização paginada de todos os clientes cadastrados.
-- **CRUD de Clientes:**
-  - Criar novos clientes através de um modal.
-  - Ler (Read) a lista de clientes da API.
-  - Atualizar (Update) as informações de um cliente existente.
-  - Excluir (Delete) um cliente com confirmação.
-- **Seleção de Clientes:** Funcionalidade para marcar/desmarcar clientes e visualizá-los em uma página dedicada.
-- **Testes:**
-  - Testes unitários com **Vitest**
-  - Testes End-to-End com **Playwright**
+> Este repositório contém a interface de financas e orquestração dos microfrontends. Ele atua como [remote] na arquitetura de microfrontends da aplicação.
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
 
-- **React** – Biblioteca para construção da interface de usuário
-- **Vite** – Ferramenta de build e dev server moderno
-- **TypeScript** – Tipagem estática e segurança em tempo de desenvolvimento
-- **Styled Components** – Estilização com CSS-in-JS
-- **Bootstrap 5** – Sistema de grid e componentes visuais
-- **Polished** – Utilitários para manipulação de cores
-- **Unform** – Criação de formulários performáticos
-- **Yup** – Validação de formulários
-- **Axios** – Cliente HTTP para requisições à API
-- **SweetAlert2 / Toast** – Alertas e notificações
-- **Vitest** – Testes unitários
-- **Playwright** – Testes End-to-End
-- **ESLint & Prettier** – Lint e formatação de código
+Este projeto foi construído com as seguintes tecnologias:
+
+- **[React](https://react.dev/)** (v19.x)
+- **[Vite](https://vitejs.dev/)** como build tool e servidor de desenvolvimento
+- **[TypeScript](https://www.typescriptlang.org/)** para tipagem estática
+- **[Styled-Components](https://styled-components.com/)** para estilização CSS-in-JS
+- **[Vitest](https://vitest.dev/)** para testes unitários
+- **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)** para testes de componentes
 
 ---
 
 ## 📋 Pré-requisitos
 
-Antes de começar, certifique-se de ter:
+Antes de começar, certifique-se de que você tem os seguintes softwares instalados em sua máquina:
 
-- **Node.js** `v20.19.2` ou superior
-- **Yarn** `v1.22.22` ou superior
-- **Docker** (opcional, para rodar com container)
+- [Node.js](https://nodejs.org/) (v20.x ou superior)
+- [Yarn](https://yarnpkg.com/) (ou `npm`)
 
 ---
 
-## ⚙️ Configuração e Instalação
+## ⚙️ Instalação
 
-### 1. Clone o repositório:
+Siga os passos abaixo para configurar o ambiente de desenvolvimento.
 
-```bash
-git clone https://github.com/Jonatas-Felipe/teste-front-end-teddy
-cd teste-front-end-teddy
-```
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/Jonatas-Felipe/tinnova-frontend-top-finance.git
+    cd tinnova-frontend-top-finance
+    ```
 
-### 2. Instale as dependências:
+2.  **Instale as dependências:**
+    ```bash
+    yarn install
+    ```
 
-```bash
-yarn install
-```
+3.  **Configure as Variáveis de Ambiente:**
+    Crie uma cópia do arquivo de exemplo `.env.example`:
+    ```bash
+    cp .env.example .env
+    ```
+    Em seguida, abra o arquivo `.env` e ajuste as variáveis se necessário.
 
-### 3. Configure as variáveis de ambiente:
+    | Variável | Descrição | Exemplo |
+    | :--- | :--- | :--- |
+    | `VITE_API_URL` | URL base da API Gateway que este frontend consome. | `http://localhost:3333` |
 
-Crie um arquivo `.env` na raiz do projeto e adicione:
+---
 
-```
-VITE_API_URL=http://localhost:3333
-```
+## ▶️ Execução
 
-> Substitua `http://localhost:3333` pela URL da sua API, se necessário.
+### Modo de Desenvolvimento
 
-### 4. Rode a aplicação:
+Para iniciar o servidor de desenvolvimento com hot-reload (recarregamento automático ao salvar):
 
 ```bash
 yarn dev
 ```
 
-A aplicação estará disponível em `http://localhost:5173`.
+A aplicação estará disponível em `http://localhost:[porta]`.
 
----
+### Build de Produção
 
-## 📜 Scripts Disponíveis
-
-| Script          | Descrição                                       |
-| --------------- | ----------------------------------------------- |
-| `yarn dev`      | Inicia a aplicação em modo de desenvolvimento   |
-| `yarn build`    | Gera a build de produção na pasta `dist/`       |
-| `yarn test`     | Executa os testes unitários com **Vitest**      |
-| `yarn test:e2e` | Executa os testes End-to-End com **Playwright** |
-
----
-
-## 🐳 Rodando com Docker (Opcional)
-
-### 1. Construir a imagem Docker:
+Para gerar a versão otimizada para produção:
 
 ```bash
-docker build -t front-end-teddy .
+yarn build
 ```
 
-### 2. Rodar o container:
-
-```bash
-docker run -p 8080:80 front-end-teddy
-```
-
-A aplicação estará disponível em `http://localhost:8080`.
+Os arquivos estáticos serão gerados na pasta `dist/`.
 
 ---
 
-## 📄 Licença
+## ✅ Testes
 
-Este projeto é apenas para fins de estudo/desafio técnico.
+Os testes unitários e de integração são escritos com Vitest e React Testing Library.
 
----
- -->
+### Como Rodar os Testes
+
+- **Para rodar a suíte de testes uma vez:**
+  ```bash
+  yarn test
+  ```
+
+- **Para rodar os testes com a interface gráfica interativa do Vitest:**
+  ```bash
+  yarn test:ui
+  ```
+
+Isso abrirá uma aba no seu navegador onde você pode visualizar os resultados, filtrar testes e ver detalhes dos erros de forma mais amigável.
